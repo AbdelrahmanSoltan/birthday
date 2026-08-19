@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
+<title>Happy Birthday Hanan❤️</title>
  
 <style>
-
+ 
 * {
 
     margin: 0;
@@ -89,9 +89,21 @@ body {
  
 @keyframes twinkle {
 
-    from { opacity: .2; transform: scale(.7); }
+    from {
 
-    to { opacity: 1; transform: scale(1.3); }
+        opacity: .2;
+
+        transform: scale(.7);
+
+    }
+ 
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.3);
+
+    }
 
 }
  
@@ -147,9 +159,17 @@ body {
  
 @keyframes glow {
 
-    from { filter: drop-shadow(0 0 5px rgba(255,100,160,.2)); }
+    from {
 
-    to { filter: drop-shadow(0 0 25px rgba(255,100,160,.5)); }
+        filter: drop-shadow(0 0 5px rgba(255,100,160,.2));
+
+    }
+ 
+    to {
+
+        filter: drop-shadow(0 0 25px rgba(255,100,160,.5));
+
+    }
 
 }
  
@@ -239,7 +259,7 @@ body {
 
     width: 180px;
 
-    height: 150px;
+    height: 220px;
 
     cursor: pointer;
 
@@ -268,6 +288,8 @@ body {
     border-radius: 5px;
 
     box-shadow: 0 20px 50px rgba(255, 60, 130, .3);
+
+    z-index: 3;
 
 }
  
@@ -309,7 +331,7 @@ body {
 
     position: absolute;
 
-    top: 15px;
+    top: 55px;
 
     left: -10px;
 
@@ -321,7 +343,7 @@ body {
 
     border-radius: 6px;
 
-    z-index: 2;
+    z-index: 6;
 
     transition: 1s;
 
@@ -359,13 +381,109 @@ body {
 
 }
  
+/* Lid opening */
+ 
 .gift.open .lid {
 
-    transform: translateY(-100px) rotate(-10deg);
+    transform: translateY(-110px) rotate(-10deg);
 
     opacity: 0;
 
 }
+ 
+/* ---------- PHOTO INSIDE GIFT ---------- */
+ 
+.gift-photo {
+
+    position: absolute;
+ 
+    /* Start hidden inside the gift */
+
+    left: 50%;
+
+    bottom: 35px;
+ 
+    width: 140px;
+
+    height: 180px;
+ 
+    object-fit: cover;
+ 
+    border-radius: 15px;
+
+    border: 4px solid white;
+ 
+    box-shadow:
+
+        0 10px 30px rgba(255, 70, 140, .35),
+
+        0 0 30px rgba(255, 150, 200, .25);
+ 
+    transform: translate(-50%, 60px) scale(.4);
+
+    opacity: 0;
+ 
+    z-index: 2;
+ 
+    transition:
+
+        transform 1.2s cubic-bezier(.17,.67,.35,1.3),
+
+        opacity .8s ease;
+ 
+    pointer-events: none;
+
+}
+ 
+/* Photo rises out after gift opens */
+ 
+.gift.open .gift-photo {
+
+    opacity: 1;
+ 
+    transform:
+
+        translate(-50%, -115px)
+
+        scale(1);
+ 
+    z-index: 5;
+
+}
+ 
+/* Photo glow */
+ 
+.gift.open .gift-photo {
+
+    animation: photoGlow 2s ease-in-out infinite alternate;
+
+}
+ 
+@keyframes photoGlow {
+ 
+    from {
+
+        box-shadow:
+
+            0 10px 30px rgba(255, 70, 140, .35),
+
+            0 0 15px rgba(255, 150, 200, .25);
+
+    }
+ 
+    to {
+
+        box-shadow:
+
+            0 10px 40px rgba(255, 70, 140, .6),
+
+            0 0 40px rgba(255, 150, 200, .5);
+
+    }
+
+}
+ 
+/* ---------- GIFT MESSAGE ---------- */
  
 .gift-message {
 
@@ -511,11 +629,23 @@ section {
 
 }
  
-.candle:nth-child(1) { left: 60px; }
+.candle:nth-child(1) {
 
-.candle:nth-child(2) { left: 123px; }
+    left: 60px;
 
-.candle:nth-child(3) { left: 186px; }
+}
+ 
+.candle:nth-child(2) {
+
+    left: 123px;
+
+}
+ 
+.candle:nth-child(3) {
+
+    left: 186px;
+
+}
  
 .flame {
 
@@ -541,7 +671,11 @@ section {
  
 @keyframes flame {
 
-    to { transform: rotate(-45deg) scale(1.15); }
+    to {
+
+        transform: rotate(-45deg) scale(1.15);
+
+    }
 
 }
  
@@ -698,7 +832,7 @@ section {
 }
  
 @keyframes appear {
-
+ 
     from {
 
         opacity: 0;
@@ -706,7 +840,7 @@ section {
         transform: translateY(20px);
 
     }
-
+ 
     to {
 
         opacity: 1;
@@ -714,7 +848,7 @@ section {
         transform: translateY(0);
 
     }
-
+ 
 }
  
 /* ---------- FINAL ---------- */
@@ -818,7 +952,7 @@ section {
 }
  
 @keyframes floatHeart {
-
+ 
     0% {
 
         transform: translateY(0) rotate(0);
@@ -826,7 +960,7 @@ section {
         opacity: 1;
 
     }
-
+ 
     100% {
 
         transform: translateY(-110vh) rotate(360deg);
@@ -834,7 +968,7 @@ section {
         opacity: 0;
 
     }
-
+ 
 }
  
 /* ---------- RESPONSIVE ---------- */
@@ -876,8 +1010,29 @@ section {
         padding: 25px;
 
     }
+ 
+    .gift {
 
+        transform: scale(.9);
+
+    }
+ 
+    .gift:hover {
+
+        transform: scale(.95);
+
+    }
+ 
+    .gift-photo {
+
+        width: 125px;
+
+        height: 165px;
+
+    }
+ 
 }
+ 
 </style>
 </head>
  
@@ -895,7 +1050,10 @@ section {
         A little surprise for you
 </div>
  
-    <h1>Happy Birthday ❤️</h1>
+    <h1>
+
+        Happy Birthday ❤️
+</h1>
  
     <p>
 
@@ -918,7 +1076,10 @@ section {
  
 <div class="gift-section" id="giftSection">
  
-    <h2>Your Birthday Gift 🎁</h2>
+    <h2>
+
+        Your Birthday Gift 🎁
+</h2>
  
     <p>
 
@@ -927,21 +1088,34 @@ section {
  
     <div class="gift" id="gift" onclick="openGift()">
  
-        <div class="lid">
+        <!-- PHOTO -->
+<img
+
+            src="birthday-photo.jpg"
+
+            alt="A special memory ❤️"
+
+            class="gift-photo"
+>
+ 
+        <!-- LID -->
+<div class="lid">
  
             <div class="ribbon left"></div>
 <div class="ribbon right"></div>
  
         </div>
  
-        <div class="gift-box"></div>
+        <!-- BOX -->
+<div class="gift-box"></div>
  
     </div>
  
     <div class="gift-message" id="giftMessage">
-
+ 
         ✨ You just unlocked something special. ✨
-</div>
+ 
+    </div>
  
 </div>
  
@@ -977,17 +1151,20 @@ section {
 </div>
  
             <div class="cake-top"></div>
-<div class="cream"></div>
-<div class="cake-bottom"></div>
+ 
+            <div class="cream"></div>
+ 
+            <div class="cake-bottom"></div>
  
         </div>
  
     </div>
  
     <div class="cake-text">
-
+ 
         🎉 May every wish you make today come true.
-</div>
+ 
+    </div>
  
 </section>
  
@@ -1178,20 +1355,30 @@ section {
  
 <!-- MUSIC -->
  
-<button class="music-button" onclick="toggleMusic()" id="musicButton">
+<button
+
+    class="music-button"
+
+    onclick="toggleMusic()"
+
+    id="musicButton"
+>
 
     🎵
 </button>
  
 <audio id="music" loop>
-<!--
+ 
+    <!--
 
         Put your music file in the repository and change
 
         "birthday-song.mp3" to its filename.
 
     -->
-<source src="birthday-song.mp3" type="audio/mpeg">
+ 
+    <source src="birthday-song.mp3" type="audio/mpeg">
+ 
 </audio>
  
  
@@ -1207,24 +1394,30 @@ for (let i = 0; i < 100; i++) {
  
     star.className = "star";
  
-    star.style.left = Math.random() * 100 + "%";
+    star.style.left =
 
-    star.style.top = Math.random() * 100 + "%";
+        Math.random() * 100 + "%";
+ 
+    star.style.top =
+
+        Math.random() * 100 + "%";
  
     star.style.animationDelay =
 
         Math.random() * 3 + "s";
  
     stars.appendChild(star);
-
+ 
 }
  
  
-/* ---------- GIFT ---------- */
+/* ---------- SCROLL TO GIFT ---------- */
  
 function scrollToGift() {
  
-    document.getElementById("giftSection")
+    document
+
+        .getElementById("giftSection")
 
         .scrollIntoView({
 
@@ -1235,21 +1428,39 @@ function scrollToGift() {
 }
  
  
+/* ---------- GIFT ---------- */
+ 
 function openGift() {
  
-    const gift = document.getElementById("gift");
+    const gift =
 
-    const message = document.getElementById("giftMessage");
+        document.getElementById("gift");
  
+    const message =
+
+        document.getElementById("giftMessage");
+ 
+    // Prevent opening repeatedly
+
+    if (gift.classList.contains("open")) {
+
+        return;
+
+    }
+ 
+    // Open the gift
+
     gift.classList.add("open");
  
+    // Wait for the photo to rise
+
     setTimeout(() => {
  
         message.classList.add("show");
  
         createConfetti();
  
-    }, 600);
+    }, 800);
  
 }
  
@@ -1260,16 +1471,20 @@ function createConfetti() {
  
     for (let i = 0; i < 100; i++) {
  
-        const confetti = document.createElement("div");
+        const confetti =
+
+            document.createElement("div");
  
         confetti.style.position = "fixed";
-
+ 
         confetti.style.width = "8px";
-
+ 
         confetti.style.height = "8px";
  
-        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.left =
 
+            Math.random() * 100 + "vw";
+ 
         confetti.style.top = "-10px";
  
         confetti.style.background =
@@ -1277,7 +1492,7 @@ function createConfetti() {
             `hsl(${Math.random() * 360}, 90%, 65%)`;
  
         confetti.style.zIndex = "100";
-
+ 
         confetti.style.borderRadius = "2px";
  
         document.body.appendChild(confetti);
@@ -1287,43 +1502,49 @@ function createConfetti() {
             2 + Math.random() * 3;
  
         confetti.animate(
-
+ 
             [
-
+ 
                 {
 
-                    transform: "translateY(0) rotate(0deg)",
+                    transform:
 
+                        "translateY(0) rotate(0deg)",
+ 
                     opacity: 1
 
                 },
-
+ 
                 {
 
                     transform:
 
                         `translateY(110vh) rotate(${Math.random() * 1000}deg)`,
-
+ 
                     opacity: 0
 
                 }
-
+ 
             ],
-
+ 
             {
+ 
+                duration:
 
-                duration: duration * 1000,
+                    duration * 1000,
+ 
+                easing:
 
-                easing: "cubic-bezier(.2,.8,.4,1)"
-
+                    "cubic-bezier(.2,.8,.4,1)"
+ 
             }
-
+ 
         );
  
         setTimeout(() => {
-
+ 
             confetti.remove();
-
+ 
         }, duration * 1000);
  
     }
@@ -1363,13 +1584,19 @@ function showSecret() {
  
 function createHeart() {
  
-    const heart = document.createElement("div");
+    const heart =
+
+        document.createElement("div");
  
     heart.className = "heart";
  
     heart.innerHTML =
 
-        Math.random() > .5 ? "❤️" : "💕";
+        Math.random() > .5
+
+            ? "❤️"
+
+            : "💕";
  
     heart.style.left =
 
@@ -1382,9 +1609,9 @@ function createHeart() {
     document.body.appendChild(heart);
  
     setTimeout(() => {
-
+ 
         heart.remove();
-
+ 
     }, 5000);
  
 }
@@ -1394,8 +1621,10 @@ setInterval(createHeart, 1200);
  
 /* ---------- MUSIC ---------- */
  
-const music = document.getElementById("music");
+const music =
 
+    document.getElementById("music");
+ 
 const musicButton =
 
     document.getElementById("musicButton");
@@ -1415,15 +1644,15 @@ function toggleMusic() {
     } else {
  
         music.play()
-
+ 
             .then(() => {
  
                 musicButton.innerHTML = "🔊";
-
+ 
                 playing = true;
  
             })
-
+ 
             .catch(() => {
  
                 alert(
